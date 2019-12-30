@@ -1,0 +1,165 @@
+:root {
+  --red-color: #ff877f;
+  --red-active-color: #f44708;
+  --green-color: #CEE27D;
+  --green-active-color: #85ef47;
+  --blue-color: #a9dff2;
+  --blue-active-color: #20a4f3;
+  --yellow-color: #fdfdbf;
+  --yellow-active-color: #ffd400;
+  --global-background: #272d35;
+  --btn-active-background: rgb(48, 65, 68);
+  --btn-background: #4F6367;
+  --heading-primary-color: #f9f6f2;
+  --heading-secondary-color: #DFF0EA;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--global-background);
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.header {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem 1rem 0 1rem;
+  text-align: center;
+}
+
+.header h1 {
+  margin-bottom: 0.5rem;
+  color: var(--heading-primary-color);
+}
+
+.header p {
+  color: var(--heading-secondary-color);
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 1rem;
+  border: 3px solid #000;
+  border-radius: 10px;
+  margin: 1rem 1rem 0 1rem;
+  text-align: center;
+  transition: 0.3s;
+  background-color: var(--btn-active-background);
+}
+
+.btn:last-of-type {
+    margin-bottom: 1rem;
+}
+
+.btn-red {
+  color: var(--red-active-color);
+  border-color: var(--red-active-color);
+}
+
+.btn-green {
+  color: var(--green-active-color);
+  border-color: var(--green-active-color);
+}
+
+.btn-yellow {
+  color: var(--yellow-active-color);
+  border-color: var(--yellow-active-color);
+}
+
+.btn-blue {
+  color: var(--blue-active-color);
+  border-color: var(--blue-active-color);
+}
+
+.btn h2 {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-content: center;
+  }
+
+  .btn {
+    padding: 2rem 3rem;
+    background-color: var(--btn-background);
+  }
+
+  .btn:last-of-type {
+    margin-bottom: 0;
+}
+
+  .btn:hover {
+    transform: scale(1.1);
+    background-color: var(--btn-active-background);
+  }
+
+  .btn-red {
+    color: var(--red-color);
+    border-color: var(--red-color);
+  }
+
+  .btn-red:hover {
+    color: var(--red-active-color);
+    border-color: var(--red-active-color);
+  }
+
+  .btn-green {
+    color: var(--green-color);
+    border-color: var(--green-color);
+  }
+
+  .btn-green:hover {
+    color: var(--green-active-color);
+    border-color: var(--green-active-color);
+  }
+
+  .btn-yellow {
+    color: var(--yellow-color);
+    border-color: var(--yellow-color);
+  }
+
+  .btn-yellow:hover {
+    color: var(--yellow-active-color);
+    border-color: var(--yellow-active-color);
+  }
+
+  .btn-blue {
+    color: var(--blue-color);
+    border-color: var(--blue-color);
+  }
+
+  .btn-blue:hover {
+    color: var(--blue-active-color);
+    border-color: var(--blue-active-color);
+  }
+}
