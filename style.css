@@ -1,7 +1,7 @@
 :root {
   --red-color: #ff877f;
   --red-active-color: #f44708;
-  --green-color: #CEE27D;
+  --green-color: #cee27d;
   --green-active-color: #85ef47;
   --blue-color: #a9dff2;
   --blue-active-color: #20a4f3;
@@ -9,12 +9,12 @@
   --yellow-active-color: #ffd400;
   --global-background: #272d35;
   --btn-active-background: rgb(48, 65, 68);
-  --btn-background: #4F6367;
+  --btn-background: #4f6367;
   --heading-primary-color: #f9f6f2;
-  --heading-secondary-color: #DFF0EA;
+  --heading-secondary-color: #dff0ea;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:wght@300;500&display=swap");
 
 *,
 ::after,
@@ -24,38 +24,161 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 body {
   background-color: var(--global-background);
   font-family: "Roboto", sans-serif;
 }
 
-.container {
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
-  max-width: 900px;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+#sk,
+#en {
+  display: flex;
+  flex-direction: column;
+  transition: all ease-in-out 0.5s;
 }
 
-.header {
-  grid-column: 1 / -1;
+#sk {
+  display: none;
+  opacity: 0;
+}
+
+#en-main,
+#en-projects,
+#sk-main,
+#sk-projects {
+  height: 100vh;
+  width: 100vw;
+}
+
+#en-main,
+#sk-main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  margin: 1rem 1rem 0 1rem;
-  text-align: center;
 }
 
-.header h1 {
-  margin-bottom: 0.5rem;
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  height: 100%;
+  max-width: 1000px;
+}
+
+.main-content {
+  padding: 0 1rem;
   color: var(--heading-primary-color);
+  font-weight: 300;
+  text-align: center;
+  line-height: 2rem;
+  font-size: 1.5rem;
 }
 
-.header p {
-  color: var(--heading-secondary-color);
+.main-content a {
+  color: var(--heading-primary-color);
+  text-decoration: none;
+  font-size: 1.7rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.main-content a:hover {
+  text-decoration: underline;
+}
+
+.language {
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.language a {
+  padding: 1rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--btn-active-background);
+  transition: transform ease-in-out 0.2s;
+}
+
+.language a:hover {
+  transform: scale(1.2);
+}
+
+.next,
+.previous {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.next a,
+.previous a {
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  border: var(--heading-secondary-color) 1px solid;
+  background: var(--heading-secondary-color);
+  color: var(--btn-active-background);
+  text-decoration: none;
+  transition: transform ease-in-out 0.3s;
+}
+
+.next a:hover,
+.previous a:hover {
+  transform: scale(1.1);
+}
+
+.previous {
+  margin: 2rem 0;
+}
+
+#en-main,
+#sk-main {
+  background: linear-gradient(
+    0deg,
+    rgba(1, 103, 149, 1) 0%,
+    rgba(27, 36, 49, 1) 100%
+  );
+}
+
+#en-projects,
+#sk-projects {
+  background: linear-gradient(
+    0deg,
+    rgba(4, 3, 72, 1) 0%,
+    rgba(30, 72, 143, 1) 75%,
+    rgba(1, 103, 149, 1) 100%
+  );
+  min-height: 100vh;
+}
+
+#en-projects,
+#sk-projects {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.container {
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
 }
 
 .btn {
@@ -70,11 +193,11 @@ body {
   margin: 1rem 1rem 0 1rem;
   text-align: center;
   transition: 0.3s;
-  background-color: var(--btn-active-background);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .btn:last-of-type {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .btn-red {
@@ -111,18 +234,17 @@ body {
 
   .btn {
     padding: 2rem 3rem;
-    background-color: var(--btn-background);
   }
 
   .btn:last-of-type {
     margin-bottom: 0;
-}
+  }
 
   .btn:hover {
     transform: scale(1.1);
-    background-color: var(--btn-active-background);
+    background-color: rgba(0, 0, 0, 0.4);
   }
-
+  /* 
   .btn-red {
     color: var(--red-color);
     border-color: var(--red-color);
@@ -161,5 +283,5 @@ body {
   .btn-blue:hover {
     color: var(--blue-active-color);
     border-color: var(--blue-active-color);
-  }
+  } */
 }
