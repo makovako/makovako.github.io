@@ -221,6 +221,14 @@ body {
   border-color: var(--blue-active-color);
 }
 
+.btn-neutral {
+  color: white;
+  border: 5px solid;
+  border-image-source: linear-gradient(160deg, rgba(255,255,255,1) 0%, rgba(120,140,201,1) 46%, rgba(16,66,214,1) 88%);
+  border-image-slice: 1;
+  border-radius: 10px;
+}
+
 .btn h2 {
   margin-bottom: 1rem;
   font-weight: bold;
